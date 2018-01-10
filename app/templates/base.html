@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}IO{% endblock %}</title>
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+    integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+    {% block stylesheets %}
+    {% endblock %}
+    <style media="screen">
+      {% block styles %}
+      body {
+        background-color: whitesmoke;
+        padding-top: 3rem; // This is to push down the page a little
+      }
+
+      section {
+        padding: 30px 30px;
+      }
+
+      p {
+        text-align: justify;
+        font-size: 1.3rem;
+      }
+
+      #head #portfolio {
+        background-color: white;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      .footer {
+        background-color: #292B2C;
+        color: #F8F8F1;
+        height: 60px;
+        line-height: 60px;
+      }
+      {% endblock %}
+    </style>
+  </head>
+  <body>
+    {% block navbar %}
+    {% endblock %}
+
+    <div class="container-fluid">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{category}}" role="alert">{{message}}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="container">
+      IO &copy; {{year}} All Rights Reserved.
+    </div>
+  </footer>
+  {% block scripts %}
+    {{ moment.include_moment() }}
+    <script src="https://use.fontawesome.com/0abc58317c.js" charset="utf-8"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+      integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+      crossorigin="anonymous">
+    </script>
+  {% endblock %}
+</html>

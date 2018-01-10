@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block styles %}
+  {{super()}}
+  span {
+    color: red;
+  }
+{% endblock %}
+{% block content %}
+<section id="head" class="section text-center">
+  <img id="img-me" src="https://i.imgur.com/Ly8dGWa.jpg" class="rounded-circle img-fluid" alt="Me!" />
+  <div class="container" >
+    <h1 class="display-4">Hi there! I'm Ileri. Nice to meet you.</h1>
+  </div>
+</section>
+<hr />
+<section id="about" class="section">
+  <div class="container">
+    <div class="text-center">
+      <h1>About</h1>
+    </div>
+    <div class="text-center">
+      <p>My name is Ilerioluwa Oyedele. I am a softwear developer. I have experience with a variety of languages incluing Java, C#, PHP, Python, Java Script, HTML, CSS, MySQL and R.</p>
+      <p>My focus is in back end web development. But I love to code, so anything where I get to do that realy.</p>
+    </div>
+  </div>
+</section>
+<hr />
+<section id="projects" class="section">
+  <div class="container">
+    <div class="text-center">
+      <h1>Projects</h1>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-6">
+        <img src="https://i.imgur.com/XXYyw6G.png" class="rounded img-thumbnail img-fluid mt-2" alt="hangmania">
+      </div>
+      <div class="col-sm-6">
+        <img src="https://i.imgur.com/r7H66xk.png" class="rounded img-thumbnail img-fluid mt-2" alt="ezplan">
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-sm-6">
+        <img src="https://i.imgur.com/88ZCRtr.png" class="rounded img-thumbnail img-fluid mt-2" alt="temp.">
+      </div>
+      <div class="col-sm-6">
+        <img src="https://i.imgur.com/88ZCRtr.png" class="rounded img-thumbnail img-fluid mt-2" alt="temp.">
+      </div>
+    </div>
+  </div>
+</section>
+<hr />
+<section  id="contact" class="section">
+  <div class="container">
+    <div class="text-center">
+      <h1>Contact</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form action="{{url_for('contact_me')}}" method="post">
+          {{form.csrf_token}}
+          <div class="form-group">
+            {{form.name.label}}<span>*</span>
+            {% for error in form.name.errors %}
+            <span>[{{ error }}]</span>
+            {% endfor %}
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            {{form.email.label}}<span>*</span>
+            {% for error in form.email.errors %}
+            <span>[{{ error }}]</span>
+            {% endfor %}
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            {{form.phone.label}}
+            <input type="text" class="form-control" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            {{form.message.label}}<span>*</span>
+            {% for error in form.message.errors %}
+            <span>[{{ error }}]</span>
+            {% endfor %}
+            <textarea class="form-control" id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <p>If you would like to get in touch with me, please feel free to use the contact form or email me directly.</p>
+        <p>ilerioyedele 'at' gmail 'dot' com</p>
+        <p>I'll get back to you asap. Meanwhile...</p>
+        <div>
+          <!--Resume-->
+          <a class="btn btn-primary" href="#" target="_blank">
+            <i class="fa fa-id-card"></i></a>
+          </a>
+          <!--Facebook-->
+          <a class="btn btn-primary" href="https://www.facebook.com/ilerio" target="_blank">
+            <i class="fa fa-facebook"></i></a>
+          </a>
+          <!--Twitter-->
+          <a class="btn btn-primary" href="https://twitter.com/ilerioyedele" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <!--Linkedin-->
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/ilerioyedele" target="_blank">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <!--Github-->
+          <a class="btn btn-primary" href="https://github.com/ilerio" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
