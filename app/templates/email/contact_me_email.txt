@@ -1,0 +1,12 @@
+You have received a new message from your website contact form.
+
+Here are the details:
+
+name: {{name}}
+email: {{email}}
+phone number: {{phone}}
+message:
+{{message}}
+
+---------------------
+Your trusty website!
