@@ -18,6 +18,6 @@ def send_contact_me_email(name,email,message,phone):
                sender=app.config['ADMIN_EMAIL'],
                recipients=app.config['CONTACT_ME_EMAIL'].split(),
                text_body=render_template('email/contact_me_email.txt',
-                                         name=name,email=email,phone=phone,message=message),
+                name=name,email=email,phone=phone,message=message),
                html_body=render_template('email/contact_me_email.html',
-                                         name=name,email=email,phone=phone,message=message))
+                name=name,email=email,phone=phone,message=message))
